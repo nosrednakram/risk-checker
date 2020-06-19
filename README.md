@@ -1,37 +1,47 @@
-## Welcome to GitHub Pages
+## Risk Checker
 
-You can use the [editor on GitHub](https://github.com/nosrednakram/risk-checker/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Want to be able to do contact tracking without being geo-tagged or having your identity easily shared. I do and based on a conversation recently I woke up with an idea to create a tool to do this easily, assuming public buy-in. In short, the tool will generate QR codes that a user will scan. Upon scanning the user's time and association to the scanned person/place's QR code will be logged. As the users are asked to do a self-assessment each day before using a user's risk can be displayed. A lot more to it but that's our initial idea. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Help
 
-### Markdown
+This will be my first real go at an open-source project and I'd love all of the help I can get. I feel like I'm new enough to this as to not know what I even need help with. If you like this idea and have skills to offer please reach out. Beyond that, for headings below, I offer what skill I believe would be most helpful. My background covers all areas, with statistics and fuzzy logic being my weakest area.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Components
 
-```markdown
-Syntax highlighted code block
+The task of doing this will require several servers to isolate performance requirements by the task. With all the options for the virtual systems these days I prefer to design for multiple servers even when developing on a single server.
 
-# Header 1
-## Header 2
-### Header 3
+#### Account Server (Basic Website Front and Back End Developers)
 
-- Bulleted
-- List
+This will be the first server to build and will facilitate:
 
-1. Numbered
-2. List
+  * Creating an account
+  * Authenticating
+    * Setting cookies
+  * Resetting password
+  * Password recovery
+  * Collection of users voluntary meta information
+  * Downloading of QR code
+  
+#### Tracking Server (Back End Servers Developer)
 
-**Bold** and _Italic_ and `Code` text
+Next up will be the workhorse of the project. It will simply track associations of the systems QR codes.
 
-[Link](url) and ![Image](src)
-```
+  * Upon accessing a page store association of user to scanned QR code
+  * Display assessed risk 
+  
+#### Personal Health Assessment (Looking For Health Professional Help)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The goal is to ask a few questions to help identify the risk of the participant having COVID. By asking a few questions a score will be given to the risk the user poses to others. The system will also look at contact tracing to offer another risk assessment. It will then offer suggestions on if the user should self isolate, etc... We will need a balance between the personal self-assessment and the likelihood of exposure based on these systems data to determine overall risk.
 
-### Jekyll Themes
+#### Proximity Calculator (Fuzzy Logic Anyone) 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nosrednakram/risk-checker/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+This is the math-heavy portion and will and constantly calculate based on activity. e.g. priority to people moving around and making new data points. It will need to be able to assess everyone who has used the system in the last few weeks daily but for those moving around a lot more calculations will have a weighted. This is the second score the Health Assessment system uses when determining overall risk.
 
-### Support or Contact
+#### Storage Server (Systems Storage Experts Welcome)
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This server will need to manage the mass amounts of data we will be collecting and also be efficient when calculating contact tracing. A distributed ACID server sounds great but depending on the scale a single server will suffice. This will be a big design decision should concurrency be maintained in the server or the back end, etc... 
+
+#### Communication Server (Systems Communications Expert Welcome(
+
+Simple email/SMS/... services will be passed off and queued up. This will provide account communications and proximity alerts primarily for those not using the system daily if they have a heightened risk of exposure. 
+
