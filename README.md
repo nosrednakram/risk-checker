@@ -1,4 +1,6 @@
-## Risk Checker
+## Risk Checker 
+
+Themed view: https://nosrednakram.github.io/risk-checker/
 
 Want to be able to do contact tracking without being geo-tagged or having your identity easily shared. I do and based on a conversation recently I woke up with an idea to create a tool to do this easily, assuming public buy-in. In short, the tool will generate QR codes that a user will scan. Upon scanning the user's time and association to the scanned person/place's QR code will be logged. As the users are asked to do a self-assessment each day before using a user's risk can be displayed. A lot more to it but that's our initial idea. 
 
