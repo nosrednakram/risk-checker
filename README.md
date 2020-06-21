@@ -41,7 +41,7 @@ This is the math-heavy portion and will and constantly calculate based on activi
 
 #### Storage Server (Systems Storage Experts Welcome)
 
-This server will need to manage the mass amounts of data we will be collecting and also be efficient when calculating contact tracing. A distributed ACID server sounds great but depending on the scale a single server will suffice. This will be a big design decision should concurrency be maintained in the server or the back end, etc... 
+I have outlined some initial thoughts in another file [DATA_SORAGE](DATA_STORAGE.md). 
 
 #### Communication Server (Systems Communications Expert Welcome(
 
