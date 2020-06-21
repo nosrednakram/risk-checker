@@ -22,6 +22,13 @@ This will be the first server to build and will facilitate:
   * Resetting password
   * Password recovery
   * Collection of users voluntary meta information
+    * Type
+     * Person
+      * Are you at increased risk
+     * Location
+      * Safe Capacity
+     * Event
+      * Safe Capacity
   * Downloading of QR code
   
 #### Tracking Server (Back End Servers Developer)
