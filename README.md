@@ -23,11 +23,11 @@ This will be the first server to build and will facilitate:
   * Password recovery
   * Collection of users voluntary meta information
     * Type
-     * Person
+      * Person
       * Are you at increased risk
-     * Location
+    * Location
       * Safe Capacity
-     * Event
+    * Event
       * Safe Capacity
   * Downloading of QR code
   
